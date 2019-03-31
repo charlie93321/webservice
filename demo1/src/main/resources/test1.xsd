@@ -1,0 +1,74 @@
+
+<!--
+
+xmlns=”http://www.w3school.com.cn”
+规定了默认命名空间的声明。此声明会告知 schema 验证器,
+    在此 XML 文档中使用的所有元素都被声明于
+    "http://www.w3school.com.cn" 这个命名空间。
+
+命名空间:
+
+
+
+
+-->
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://www.example.org/02"
+            xmlns="http://www.example.org/02"
+            elementFormDefault="qualified"
+>
+
+
+    <xsd:element name="auth">
+        <xsd:complexType>
+            <xsd:attribute name="name" type="xsd:string">
+                <xsd:simpleType>
+                    <xsd:restriction base="xsd:string" >
+                        <xsd:maxLength value="3"></xsd:maxLength>
+                    </xsd:restriction>
+                </xsd:simpleType>
+            </xsd:attribute>
+        </xsd:complexType>
+    </xsd:element>
+
+
+
+    <xsd:element name="user" >
+        <xsd:complexType>
+            <xsd:sequence>
+                <!--空元素 并且对属性有限值-->
+                <xsd:element ref="auth" ></xsd:element>
+                <!--包含文本和属性的复合元素-->
+                <xsd:element name="bookName">
+                    <xsd:complexType>
+
+
+                        <xsd:simpleContent>
+                            <xsd:restriction base="xsd:string" xml:space="default">
+                               <!-- <xsd:enumeration value="java编程思想"/>
+                                <xsd:enumeration value="linux操作指南"/>
+                                <xsd:enumeration value="python编程规范"/>-->
+                                <xsd:maxLength value="2"></xsd:maxLength>
+                                <xsd:attribute name="fee" type="xsd:double">
+                                    <xsd:simpleType>
+                                        <xsd:restriction base="xsd:double" >
+                                            <xsd:pattern value="[0-6]\\.[0-9]"></xsd:pattern>
+                                        </xsd:restriction>
+                                    </xsd:simpleType>
+                                </xsd:attribute>
+                            </xsd:restriction>
+                        </xsd:simpleContent>
+
+
+
+
+                    </xsd:complexType>
+                </xsd:element>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
+
+</xsd:schema>

@@ -6,7 +6,30 @@
 
     <groupId>com.webservice</groupId>
     <artifactId>basic</artifactId>
+    <packaging>pom</packaging>
     <version>1.2</version>
+    <modules>
+        <module>demo1</module>
+        <module>spmvc</module>
+    </modules>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.20</version>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
